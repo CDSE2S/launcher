@@ -1,0 +1,45 @@
+{
+  "name": "game-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^9.1.2",
+    "electron": "^35.1.2",
+    "electron-is-dev": "^3.0.1",
+    "electron-store": "^10.0.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "5.0.1",
+    "wait-on": "^8.0.3",
+    "web-vitals": "^2.1.4"
+  },
+  "main" : "public/electron.js",
+  "scripts": {
+  "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+  "react-start": "react-scripts start",
+  "electron-start": "wait-on http://localhost:3000 && electron .",
+  "build": "react-scripts build && electron-builder"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
